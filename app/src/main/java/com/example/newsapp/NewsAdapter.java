@@ -63,15 +63,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
         public void bind(NewsItem newsItem) {
             // Bind data to the views
-//            imageView.setImageResource(newsItem.getImageResource());
+            imageView.setImageResource(newsItem.getImageResource());
             textViewDate.setText(newsItem.getDate());
             textViewHeadline.setText(newsItem.getHeadline());
 
             String imageUrl;
             if (isTopNews) {
-                imageUrl = "https://picsum.photos/300/200";
+                imageUrl = "https://picsum.photos/425/200?v="+newsItem.getHeadline();
             } else {
-                imageUrl = "https://picsum.photos/200/200";
+                imageUrl = "https://picsum.photos/200/200?v="+newsItem.getHeadline();
             }
 
             Picasso.get().load(imageUrl).into(imageView);
