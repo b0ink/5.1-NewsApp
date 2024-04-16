@@ -4,6 +4,8 @@ public class NewsItem {
     private int imageResource;
     private String date;
     private String headline;
+    private String caption;
+    private String text;
 
     //TODO: two image
 
@@ -11,6 +13,16 @@ public class NewsItem {
         this.imageResource = imageResource;
         this.date = date;
         this.headline = headline;
+    }
+
+
+    public NewsItem(String headline, String caption, String text, String date) {
+//        this.imageResource = imageResource;
+        this.date = date;
+        this.headline = headline;
+        this.caption = caption;
+        this.text = text;
+
     }
 
     public int getImageResource() {

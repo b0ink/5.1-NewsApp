@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView topNewsRecycler = findViewById(R.id.top_news_recycler);
         topNewsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        List<NewsItem> topNewsList = generateDummyData(); // Generate dummy data
+//        List<NewsItem> topNewsList = generateDummyData(); // Generate dummy data
+        List<NewsItem> topNewsList = JsonHelper.parseArticles(this); // Generate dummy data
+
         NewsAdapter topNewsAdapter = new NewsAdapter(topNewsList, true);
         topNewsRecycler.setAdapter(topNewsAdapter);
 
@@ -40,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
-        List<NewsItem> newsList = generateDummyData(); // Generate dummy data
+//        List<NewsItem> newsList = generateDummyData(); // Generate dummy data
+        List<NewsItem> newsList = JsonHelper.parseArticles(this); // Generate dummy data
+
         NewsAdapter adapter = new NewsAdapter(newsList, false);
         recyclerView.setAdapter(adapter);
 
