@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,5 +25,20 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        List<NewsItem> newsList = generateDummyData(); // Generate dummy data
+        NewsAdapter adapter = new NewsAdapter(newsList);
+        recyclerView.setAdapter(adapter);
+    }
+
+    private List<NewsItem> generateDummyData() {
+        List<NewsItem> newsList = new ArrayList<>();
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 16, 2024", "Sample Headline 1"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 15, 2024", "Sample Headline 2"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 14, 2024", "Sample Headline 3"));
+        return newsList;
     }
 }
