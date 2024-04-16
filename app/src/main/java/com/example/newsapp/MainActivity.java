@@ -55,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
         newsList.add(new NewsItem(R.drawable.placeholder_image, "April 13, 2024", "Sample Headline 4"));
         newsList.add(new NewsItem(R.drawable.placeholder_image, "April 12, 2025", "Sample Headline 5"));
         newsList.add(new NewsItem(R.drawable.placeholder_image, "April 11, 2026", "Sample Headline 6"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 11, 2026", "Sample Headline 7"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 11, 2026", "Sample Headline 8"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 11, 2026", "Sample Headline 9"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 11, 2026", "Sample Headline 10"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 11, 2026", "Sample Headline 11"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 11, 2026", "Sample Headline 12"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 11, 2026", "Sample Headline 13"));
         return newsList;
     }
 }
