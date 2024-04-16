@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,23 +29,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        List<NewsItem> newsList = JsonHelper.parseArticles(this);
+        List<NewsItem> topNewsList = JsonHelper.parseArticles(this);
+
+        Collections.reverse(newsList);
+
+        /* Top stories */
         RecyclerView topNewsRecycler = findViewById(R.id.top_news_recycler);
         topNewsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-//        List<NewsItem> topNewsList = generateDummyData(); // Generate dummy data
-        List<NewsItem> topNewsList = JsonHelper.parseArticles(this); // Generate dummy data
-
         NewsAdapter topNewsAdapter = new NewsAdapter(topNewsList, true);
         topNewsRecycler.setAdapter(topNewsAdapter);
 
 
-
+        /* Standard news articles */
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-
-//        List<NewsItem> newsList = generateDummyData(); // Generate dummy data
-        List<NewsItem> newsList = JsonHelper.parseArticles(this); // Generate dummy data
-
         NewsAdapter adapter = new NewsAdapter(newsList, false);
         recyclerView.setAdapter(adapter);
 
