@@ -74,7 +74,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
                 imageUrl = "https://picsum.photos/200/200";
             }
 
-//            Picasso.get().load("https://i.imgur.com/DvpvklR.png").into(imageView);
+            Picasso.get().load(imageUrl).into(imageView);
         }
 
         public void clear() {
