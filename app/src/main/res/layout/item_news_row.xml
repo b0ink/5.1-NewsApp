@@ -7,13 +7,13 @@
     <LinearLayout
         android:id="@+id/news_card1"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginEnd="8dp">
+        android:layout_marginEnd="4dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <!-- Include card_news_article.xml layout for the first news card -->
-        <include layout="@layout/card_news_article"/>
+        <include layout="@layout/card_news_article" />
 
     </LinearLayout>
 
@@ -21,13 +21,13 @@
     <LinearLayout
         android:id="@+id/news_card2"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="8dp">
+        android:layout_marginStart="4dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <!-- Include card_news_article.xml layout for the second news card -->
-        <include layout="@layout/card_news_article"/>
+        <include layout="@layout/card_news_article" />
 
     </LinearLayout>
 
