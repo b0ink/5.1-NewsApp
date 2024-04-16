@@ -72,10 +72,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             String imageUrl;
             if (isTopNews) {
                 imageUrl = "https://picsum.photos/425/200?v="+newsItem.getHeadline();
-                textViewCaption.setText("");
             } else {
                 imageUrl = "https://picsum.photos/200/200?v="+newsItem.getHeadline();
             }
+            textViewCaption.setText("");
 
             Picasso.get().load(imageUrl).into(imageView);
 
