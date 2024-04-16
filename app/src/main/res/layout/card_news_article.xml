@@ -6,12 +6,25 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/imageView_article"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/placeholder_image" />
+        android:background="#FFFFFF">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="75dp"
+            android:layout_marginBottom="75dp"
+            android:src="@drawable/loading_image_spinner2" />
+
+        <ImageView
+            android:id="@+id/imageView_article"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textView_date"

@@ -63,7 +63,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
         public void bind(NewsItem newsItem) {
             // Bind data to the views
-            imageView.setImageResource(newsItem.getImageResource());
             textViewDate.setText(newsItem.getDate());
             textViewHeadline.setText(newsItem.getHeadline());
 
@@ -75,6 +74,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             }
 
             Picasso.get().load(imageUrl).into(imageView);
+
+            // Picasso should be slow enough to retrieve and override the placeholder image after its been set:
+//            imageView.setImageResource(R.drawable.loading_image_spinner);
+
         }
 
         public void clear() {

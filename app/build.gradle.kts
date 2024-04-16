@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.28")
     implementation("com.squareup.picasso:picasso:2.8")
     implementation(libs.appcompat)
     implementation(libs.material)
