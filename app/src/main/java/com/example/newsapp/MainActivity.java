@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,8 +35,10 @@ public class MainActivity extends AppCompatActivity {
         NewsAdapter topNewsAdapter = new NewsAdapter(topNewsList, true);
         topNewsRecycler.setAdapter(topNewsAdapter);
 
+
+
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         List<NewsItem> newsList = generateDummyData(); // Generate dummy data
         NewsAdapter adapter = new NewsAdapter(newsList, false);
@@ -46,9 +49,12 @@ public class MainActivity extends AppCompatActivity {
 
     private List<NewsItem> generateDummyData() {
         List<NewsItem> newsList = new ArrayList<>();
-        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 16, 2024", "Sample Headline 1"));
-        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 15, 2024", "Sample Headline 2"));
-        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 14, 2024", "Sample Headline 3"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 16, 2023", "Sample Headline 1"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 15, 2022", "Sample Headline 2"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 14, 2021", "Sample Headline 3"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 13, 2024", "Sample Headline 4"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 12, 2025", "Sample Headline 5"));
+        newsList.add(new NewsItem(R.drawable.placeholder_image, "April 11, 2026", "Sample Headline 6"));
         return newsList;
     }
 }

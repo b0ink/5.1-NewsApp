@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
@@ -24,59 +26,55 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     @NonNull
     @Override
     public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if(isTopNews){
+//        if (isTopNews) {
+        if (true) {
             //TODO: make top news a carousel with arrows on either side to imply there are stories to swipe across to
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_news_article, parent, false);
-            return new NewsViewHolder(view);
-        }else{
+            return new NewsViewHolder(view, isTopNews);
+        } else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_row, parent, false);
-            return new NewsViewHolder(view);
+            return new NewsViewHolder(view, isTopNews);
         }
     }
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
-        // Calculate the position of the news items in the dataset
-        int firstItemPosition = position * 2;
-        int secondItemPosition = firstItemPosition + 1;
-
-        // Bind data to the first news item
-        if (firstItemPosition < newsList.size()) {
-            holder.bind(newsList.get(firstItemPosition));
-        }
-
-        // Bind data to the second news item
-        if (secondItemPosition < newsList.size()) {
-            holder.bind(newsList.get(secondItemPosition));
-        } else {
-            // Hide the second item if it doesn't have data
-            holder.clear();
-        }
+        holder.bind(newsList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        // Calculate the number of rows needed for the news items
-        return (int) Math.ceil(newsList.size() / 2.0);
+        return newsList.size();
     }
 
     public static class NewsViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
         public TextView textViewDate;
         public TextView textViewHeadline;
+        private Boolean isTopNews;
 
-        public NewsViewHolder(@NonNull View itemView) {
+        public NewsViewHolder(@NonNull View itemView, Boolean isTopNews) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView_article);
             textViewDate = itemView.findViewById(R.id.textView_date);
             textViewHeadline = itemView.findViewById(R.id.textView_headline);
+            this.isTopNews = isTopNews;
         }
 
         public void bind(NewsItem newsItem) {
             // Bind data to the views
-            imageView.setImageResource(newsItem.getImageResource());
+//            imageView.setImageResource(newsItem.getImageResource());
             textViewDate.setText(newsItem.getDate());
             textViewHeadline.setText(newsItem.getHeadline());
+
+            String imageUrl;
+            if (isTopNews) {
+                imageUrl = "https://picsum.photos/300/200";
+            } else {
+                imageUrl = "https://picsum.photos/200/200";
+            }
+
+//            Picasso.get().load("https://i.imgur.com/DvpvklR.png").into(imageView);
         }
 
         public void clear() {
