@@ -51,6 +51,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         public ImageView imageView;
         public TextView textViewDate;
         public TextView textViewHeadline;
+        public TextView textViewCaption;
         private Boolean isTopNews;
 
         public NewsViewHolder(@NonNull View itemView, Boolean isTopNews) {
@@ -58,6 +59,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             imageView = itemView.findViewById(R.id.imageView_article);
             textViewDate = itemView.findViewById(R.id.textView_date);
             textViewHeadline = itemView.findViewById(R.id.textView_headline);
+            textViewCaption = itemView.findViewById(R.id.textView_caption);
+
             this.isTopNews = isTopNews;
         }
 
@@ -69,6 +72,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             String imageUrl;
             if (isTopNews) {
                 imageUrl = "https://picsum.photos/425/200?v="+newsItem.getHeadline();
+                textViewCaption.setText("");
             } else {
                 imageUrl = "https://picsum.photos/200/200?v="+newsItem.getHeadline();
             }

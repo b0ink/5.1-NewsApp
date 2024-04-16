@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         <ImageView
             android:id="@+id/imageView_article"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop" />
     </RelativeLayout>
 
@@ -38,10 +38,20 @@
         android:id="@+id/textView_headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Article Headline"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp"/>
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView_caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="normal" />
 
 </LinearLayout>

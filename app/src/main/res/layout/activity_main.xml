@@ -21,11 +21,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/text_topstories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="25sp"
+            android:paddingBottom="25dp"
+            android:text="TOP STORIES"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/top_news_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/text_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:text="NEWS"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
