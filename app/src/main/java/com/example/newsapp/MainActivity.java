@@ -26,12 +26,22 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+
+        RecyclerView topNewsRecycler = findViewById(R.id.top_news_recycler);
+        topNewsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        List<NewsItem> topNewsList = generateDummyData(); // Generate dummy data
+        NewsAdapter topNewsAdapter = new NewsAdapter(topNewsList, true);
+        topNewsRecycler.setAdapter(topNewsAdapter);
+
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         List<NewsItem> newsList = generateDummyData(); // Generate dummy data
-        NewsAdapter adapter = new NewsAdapter(newsList);
+        NewsAdapter adapter = new NewsAdapter(newsList, false);
         recyclerView.setAdapter(adapter);
+
+
     }
 
     private List<NewsItem> generateDummyData() {
