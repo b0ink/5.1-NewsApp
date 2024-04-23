@@ -82,7 +82,7 @@ public class ArticleActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.relatedArticles);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        NewsAdapter adapter = new NewsAdapter(this, newsList, false);
+        NewsAdapter adapter = new NewsAdapter(newsList);
         recyclerView.setAdapter(adapter);
 
     }

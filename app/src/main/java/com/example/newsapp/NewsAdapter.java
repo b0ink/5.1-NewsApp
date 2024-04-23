@@ -18,28 +18,17 @@ import java.util.List;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
 
     private List<NewsItem> newsList;
-    private Boolean isTopNews;
 
-    private Context context;
-
-    public NewsAdapter(Context context, List<NewsItem> newsList, Boolean horizontal) {
-        this.context = context;
+    public NewsAdapter(List<NewsItem> newsList) {
         this.newsList = newsList;
-        this.isTopNews = horizontal;
     }
 
     @NonNull
     @Override
     public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        if (isTopNews) {
-        if (true) {
-            //TODO: make top news a carousel with arrows on either side to imply there are stories to swipe across to
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_news_article, parent, false);
-            return new NewsViewHolder(view, isTopNews);
-        } else {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_row, parent, false);
-            return new NewsViewHolder(view, isTopNews);
-        }
+        //TODO: make top news a carousel with arrows on either side to imply there are stories to swipe across to
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_news_article, parent, false);
+        return new NewsViewHolder(view);
     }
 
     @Override
@@ -57,16 +46,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         public TextView textViewDate;
         public TextView textViewHeadline;
         public TextView textViewCaption;
-        private Boolean isTopNews;
 
-        public NewsViewHolder(@NonNull View itemView, Boolean isTopNews) {
+        public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView_article);
             textViewDate = itemView.findViewById(R.id.textView_date);
             textViewHeadline = itemView.findViewById(R.id.textView_headline);
             textViewCaption = itemView.findViewById(R.id.textView_caption);
-
-            this.isTopNews = isTopNews;
         }
 
         public void bind(NewsItem newsItem) {
@@ -75,10 +61,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             textViewHeadline.setText(newsItem.getHeadline());
             textViewCaption.setText("");
 
-            String imageUrl = "https://picsum.photos/425/200?v="+newsItem.getHeadline();
+            String imageUrl = "https://picsum.photos/425/200?v=" + newsItem.getHeadline();
             Picasso.get().load(imageUrl).into(imageView);
 
-            imageView.setOnClickListener((view)-> {
+            imageView.setOnClickListener((view) -> {
                 Intent intent = new Intent(view.getContext(), ArticleActivity.class);
                 intent.putExtra(ArticleActivity.EXTRA_ARTICLE_ID, newsItem.id);
                 view.getContext().startActivity(intent);
