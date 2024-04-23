@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
         /* Top stories */
         RecyclerView topNewsRecycler = findViewById(R.id.top_news_recycler);
         topNewsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        NewsAdapter topNewsAdapter = new NewsAdapter(topNewsList, true);
+        NewsAdapter topNewsAdapter = new NewsAdapter(this, topNewsList, true);
         topNewsRecycler.setAdapter(topNewsAdapter);
 
         /* Standard news articles */
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        NewsAdapter adapter = new NewsAdapter(newsList, false);
+        NewsAdapter adapter = new NewsAdapter(this, newsList, false);
         recyclerView.setAdapter(adapter);
 
     }

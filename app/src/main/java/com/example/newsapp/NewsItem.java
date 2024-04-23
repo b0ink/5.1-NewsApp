@@ -39,4 +39,7 @@ public class NewsItem {
     public String getHeadline() {
         return headline;
     }
+    public String getArticleText() {
+        return text;
+    }
 }

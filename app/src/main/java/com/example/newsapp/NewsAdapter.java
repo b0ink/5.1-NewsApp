@@ -1,5 +1,7 @@
 package com.example.newsapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +20,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     private List<NewsItem> newsList;
     private Boolean isTopNews;
 
-    public NewsAdapter(List<NewsItem> newsList, Boolean horizontal) {
+    private Context context;
+
+    public NewsAdapter(Context context, List<NewsItem> newsList, Boolean horizontal) {
+        this.context = context;
         this.newsList = newsList;
         this.isTopNews = horizontal;
     }
@@ -82,6 +87,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             // Picasso should be slow enough to retrieve and override the placeholder image after its been set:
 //            imageView.setImageResource(R.drawable.loading_image_spinner);
 
+
+            imageView.setOnClickListener((view)-> {
+                Intent intent = new Intent(view.getContext(), ArticleActivity.class);
+                intent.putExtra(ArticleActivity.EXTRA_ARTICLE_ID, newsItem.id);
+                view.getContext().startActivity(intent);
+            });
         }
 
         public void clear() {
