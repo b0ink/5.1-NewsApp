@@ -73,20 +73,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             // Bind data to the views
             textViewDate.setText(newsItem.getDate());
             textViewHeadline.setText(newsItem.getHeadline());
-
-            String imageUrl;
-            if (isTopNews) {
-                imageUrl = "https://picsum.photos/425/200?v="+newsItem.getHeadline();
-            } else {
-                imageUrl = "https://picsum.photos/200/200?v="+newsItem.getHeadline();
-            }
             textViewCaption.setText("");
 
+            String imageUrl = "https://picsum.photos/425/200?v="+newsItem.getHeadline();
             Picasso.get().load(imageUrl).into(imageView);
-
-            // Picasso should be slow enough to retrieve and override the placeholder image after its been set:
-//            imageView.setImageResource(R.drawable.loading_image_spinner);
-
 
             imageView.setOnClickListener((view)-> {
                 Intent intent = new Intent(view.getContext(), ArticleActivity.class);
