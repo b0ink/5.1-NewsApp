@@ -21,11 +21,12 @@ public class JsonHelper {
                 JSONArray jsonArray = jsonObject.getJSONArray("articles");
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject articleObject = jsonArray.getJSONObject(i);
+                    int id = articleObject.getInt("id");
                     String headline = articleObject.getString("Headline");
                     String caption = articleObject.getString("Caption");
                     String text = articleObject.getString("Text");
                     String date = articleObject.getString("Date");
-                    articles.add(new NewsItem(headline, caption, text, date));
+                    articles.add(new NewsItem(id, headline, caption, text, date));
                 }
             }
         } catch (JSONException e) {

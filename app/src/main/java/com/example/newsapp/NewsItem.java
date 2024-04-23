@@ -1,6 +1,8 @@
 package com.example.newsapp;
 
 public class NewsItem {
+    public int id;
+
     private int imageResource;
     private String date;
     private String headline;
@@ -16,8 +18,9 @@ public class NewsItem {
     }
 
 
-    public NewsItem(String headline, String caption, String text, String date) {
+    public NewsItem(int id, String headline, String caption, String text, String date) {
 //        this.imageResource = imageResource;
+        this.id = id;
         this.date = date;
         this.headline = headline;
         this.caption = caption;
