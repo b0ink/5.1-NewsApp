@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Collections;
 import java.util.List;
 import android.content.Intent;
 import android.widget.ImageView;
@@ -77,6 +78,8 @@ public class ArticleActivity extends AppCompatActivity {
 
 
         /* Standard news articles */
+        Collections.shuffle(newsList);
+
         RecyclerView recyclerView = findViewById(R.id.relatedArticles);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         NewsAdapter adapter = new NewsAdapter(this, newsList, false);
